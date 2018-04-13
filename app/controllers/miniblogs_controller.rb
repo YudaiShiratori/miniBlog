@@ -1,16 +1,16 @@
 class MiniblogsController < ApplicationController
-   before_action :blog_param, only [:show, :edit, :update, :destroy]
+   before_action :blog_param, only:[:show, :edit, :update, :destroy]
 
    def index
-     @miniblogs = miniblog.all
+     @miniblogs = Miniblog.all
    end
 
    def new
-     @miniblog = miniblog.new
+     @miniblog = Miniblog.new
    end
 
    def create
-     miniblog.create(blog_param)
+     Miniblog.create(blog_param)
 
      if @miniblog.save
        redirect_to miniblogs_path, notice:"投稿しました！"
@@ -21,7 +21,7 @@ class MiniblogsController < ApplicationController
    end
 
    def show
-     @miniblog = miniblog.find(params[:id])
+     @miniblog = Miniblog.find(params[:id])
    end
 
    def edit
@@ -32,7 +32,7 @@ class MiniblogsController < ApplicationController
      if @miniblog.save
        redirect_to miniblogs_path, notice:"更新しました！"
      else
-       render 'new'
+       render 'edit'
      end
    end
 
@@ -44,7 +44,7 @@ class MiniblogsController < ApplicationController
    private
 
    def set_blog
-     @miniblog = miniblog.find(params[:id])
+     @miniblog = Miniblog.find(params[:id])
    end
 
    def blog_params

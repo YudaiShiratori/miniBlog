@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resource :miniblogs do
+  resources :miniblogs do
     collection do
       post :confirm
     end
   end
+
+  root to: 'miniblogs#index'
 
 end

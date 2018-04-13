@@ -41,7 +41,7 @@ class MiniblogsController < ApplicationController
 
    def confirm
      @miniblog = Miniblog.new(blog_params)
-     render :new if @miniblog.invalid?
+     render :new  if @miniblog.invalid?
    end
 
    private
@@ -53,7 +53,6 @@ class MiniblogsController < ApplicationController
    def blog_params
      params.require(:miniblog).permit(:title,:content)
    end
-
 
 
 end

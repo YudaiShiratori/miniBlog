@@ -1,0 +1,31 @@
+<%= form_with(model: @miniblog, local: true) do |form|
+  # エラー表示
+  <% if @miniblog.errors.any? %>
+     <div id="error_explanation">
+       <h2><%= @minblog.errors.count %>件のエラー</h2>
+       <ul>
+
+         <% @miniblog.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+         <% end %>
+
+       </ul>
+     </div>
+   <% end %>
+
+
+   <div class="blog_title">
+     <%= form.label :title %>
+     <%= form.text_field :title %>
+   </div>
+
+   <div class="blog_content">
+     <%= form.label :content %>
+     <%= form.text_field :content %>
+   </div>
+
+   <%= form_submit %>
+
+<% end %>
+
+<%= link_to "一覧に戻る", miniblogs_path %>

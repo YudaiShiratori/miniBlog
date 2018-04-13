@@ -10,7 +10,7 @@ class MiniblogsController < ApplicationController
    end
 
    def create
-     Miniblog.create(blog_param)
+     Miniblog.create(blog_params)
 
      if @miniblog.save
        redirect_to miniblogs_path, notice:"投稿しました！"
@@ -21,15 +21,13 @@ class MiniblogsController < ApplicationController
    end
 
    def show
-     @miniblog = Miniblog.find(params[:id])
    end
 
    def edit
-
    end
 
    def update
-     if @miniblog.save
+     if @miniblog.update(blog_params)
        redirect_to miniblogs_path, notice:"更新しました！"
      else
        render 'edit'
@@ -41,6 +39,11 @@ class MiniblogsController < ApplicationController
        redirect_to miniblogs_path, notice:"削除しました！"
    end
 
+   def confirm
+     @miniblog = Miniblog.new(blog_params)
+     render :new if @miniblog.invalid?
+   end
+
    private
 
    def set_blog
@@ -48,10 +51,8 @@ class MiniblogsController < ApplicationController
    end
 
    def blog_params
-     params.require(:miniblog).permit(:name,:text)
+     params.require(:miniblog).permit(:title,:content)
    end
-
-
 
 
 

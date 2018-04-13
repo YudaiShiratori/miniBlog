@@ -1,4 +1,4 @@
 class Miniblog < ApplicationRecord
-  validates :name, presence: true
-  validates :text, presence: {in:1..140}
+  validates :title, presence: true
+  validates :content, presence: {in: 1..140}
 end

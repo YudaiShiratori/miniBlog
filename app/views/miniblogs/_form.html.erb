@@ -1,8 +1,8 @@
-<%= form_with(model: @miniblog, local: true) do |form|
-  # エラー表示
+<%= form_with(model: @miniblog, local: true, url: choose_new_or_edit) do |form| %>
+  <!-- エラー表示 -->
   <% if @miniblog.errors.any? %>
-     <div id="error_explanation">
-       <h2><%= @minblog.errors.count %>件のエラー</h2>
+     <div id = "error_explanation">
+       <h2><%= @miniblog.errors.count %>件のエラー</h2>
        <ul>
 
          <% @miniblog.errors.full_messages.each do |msg| %>
@@ -11,7 +11,7 @@
 
        </ul>
      </div>
-   <% end %>
+  <% end %>
 
 
    <div class="blog_title">
@@ -24,7 +24,7 @@
      <%= form.text_field :content %>
    </div>
 
-   <%= form_submit %>
+   <%= form.submit %>
 
 <% end %>
 

@@ -1,0 +1,17 @@
+<h1>一覧</h1>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+
+<% @miniblogs.each do |blog| %>
+  <tr>
+    <td><%= miniblog.title %></td>
+    <td><%= miniblog.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<% link_to '新規投稿', edit_miniblogs_path %>

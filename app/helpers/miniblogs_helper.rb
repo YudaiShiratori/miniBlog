@@ -4,7 +4,7 @@ module MiniblogsHelper
     if action_name == 'new' || action_name == 'confirm'
       confirm_miniblogs_path
     elsif action_name == 'edit'
-      miniblogs_path
+      miniblog_path
     end
   end
 

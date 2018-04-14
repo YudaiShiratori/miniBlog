@@ -1,11 +1,11 @@
 <h1>この内容で投稿する</h1>
 
-<%= form_with(model: @miniblog, local: true, url: miniblog_path) %>
-   <% form_hidden_field  :title %>
-   <% form_hidden_field  :content %>
+<%= form_with(model: @miniblog, local: true, url: miniblogs_path) do |form| %>
+   <%= form.hidden_field  :title %>
+   <%= form.hidden_field  :content %>
 
-   <p>タイトル<%= @miniblog.title %></p>
-   <p><%= @miniblog.content %></p>
+   <p>タイトル:<%= @miniblog.title %></p>
+   <p>本文:<%= @miniblog.content %></p>
    <%= form.submit "登録する" %>
 
 <% end %>

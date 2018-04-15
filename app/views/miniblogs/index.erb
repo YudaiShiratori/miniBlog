@@ -5,16 +5,15 @@
 <table>
   <tr>
     <th>タイトル</th>
-    <th>内容</th>
   </tr>
 
   <% @miniblogs.each do |miniblog| %>
     <tr>
-      <td><%= miniblog.title %></td>
+      <td class="title"><%= miniblog.title %></td>
       <!-- <td><%= miniblog.content %></td> -->
-      <td><%= link_to '詳細を確認する', miniblog_path(miniblog.id) %></td>
-      <td><%= link_to "ブログを編集する", edit_miniblog_path(miniblog.id) %></td>
-      <td><%= link_to 'ブログを削除する', miniblog_path(miniblog.id), method: :delete,
+      <td><%= link_to '詳細', miniblog_path(miniblog.id) %></td>
+      <td><%= link_to "編集", edit_miniblog_path(miniblog.id) %></td>
+      <td><%= link_to '削除', miniblog_path(miniblog.id), method: :delete,
       data:{confirm:'このブログを削除してよろしいですか？'} %></td>
     </tr>
   <% end %>
@@ -23,4 +22,4 @@
 
 <br>
 
-<%= link_to '新規投稿する', new_miniblog_path %>
+<%= link_to '新規投稿', new_miniblog_path %>
